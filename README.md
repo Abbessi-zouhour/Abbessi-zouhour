@@ -12,9 +12,8 @@
 - 🎓 M.Sc. in **Digital Technologies for Healthcare** — ISIMS, Sfax, Tunisia (DAAD Tunisia–Germany project)
 - 🧠 Specializing in **AI, Computer Vision, NLP, and Biomedical Deep Learning**
 - 🔬 Hands-on experience with **CNNs, U-Net, Transformers, RAG systems, and LLM integration**
-- 🚀 Currently building **TalentBridge**, an AI-powered recruitment intelligence platform
 - 📍 Based in Tunis, Tunisia
-- 📫 Reach me at **abbassizouhour2001@gmail.com**
+- 📫 Reach me at **abbassizouhour2001@gmail.com** | 🔗 [linkedin.com/in/zouhour-abbassi](https://linkedin.com/in/zouhour-abbassi)
 
 ---
 

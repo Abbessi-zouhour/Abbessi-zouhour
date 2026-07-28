@@ -33,6 +33,7 @@
 **Languages**
 <p>
 <img src="https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"/>
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
 <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/>
 <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white"/>
 <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white"/>
@@ -52,8 +53,10 @@
 
 **Databases & Tools**
 <p>
+<img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/>
 <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/>
 <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"/>
+<img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"/>
 <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black"/>
 <img src="https://img.shields.io/badge/Git-F05033?style=for-the-badge&logo=git&logoColor=white"/>
 <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
@@ -66,12 +69,41 @@
 
 | Project | Description | Stack |
 |---|---|---|
-| 🤖 **TalentBridge** | AI-powered recruitment platform: CV parser, ATS scoring, job analyzer, candidate matching engine, AI chatbot | Python, Streamlit, LangChain, Llama 3.3 70B, Groq API |
+| 📈 **TradePilot AI** | Full-stack crypto paper trading platform with live Binance WebSocket prices, EMA strategy engine, backtesting, automated trading, risk management, and a 7-feature AI layer: chat assistant, backtest analysis, portfolio advisor, natural-language strategy builder, chart image reader, live news summarizer, and an AI auto-trade filter with fail-closed safety and full decision auditability | FastAPI, Next.js, PostgreSQL, SQLAlchemy, Groq (gpt-oss-120b + qwen3.6-27b), Binance WebSocket |
+| 🤖 **TalentBridge** | AI-powered recruitment platform: CV parser, ATS scoring, job analyzer, candidate matching engine, AI chatbot | Python, Streamlit, LangChain, Llama 3.3 70B, Groq API, Supabase |
 | 🧪 **Drug–Excipient Compatibility & Solubility Prediction** | DNN + Transformer pipeline for pharmaceutical formulation (ROC-AUC ≈ 0.97) | PyTorch, ChemBERTa, RDKit, DeepChem, FastAPI |
 | 🎗️ **Breast Cancer Detection** | Deep-UNet segmentation + VGG16 classification on mammograms (92% accuracy) | TensorFlow, Keras, OpenCV, Flask |
 | 🏥 **Cardiovascular Health Monitoring** | Real-time elderly monitoring app with Polar H10 sensor integration | Flutter, Firebase, MongoDB, Node.js |
 | 👁️ **Computer Vision Object Detection** | Real-time detection system with 94% accuracy | Python, PyTorch, OpenCV |
 | 🏢 **HR & Payroll Management System** | Full-stack employee management with payroll automation & analytics | Laravel, MySQL, JavaScript |
+
+---
+
+### 📈 TradePilot AI — Deep Dive
+
+> *A full-stack crypto trading bot platform built from scratch — live prices, strategies, backtesting, automated trading, risk management, and 7 distinct AI features woven throughout.*
+
+**What it does:**
+- Streams live BTC/ETH/SOL/BNB/XRP prices via Binance WebSocket
+- Lets you define strategies (EMA Cross, MACD, RSI, Bollinger), backtest them against historical data, and run them automatically in paper trading mode
+- Manages positions with stop-loss/take-profit, tracks portfolio equity and unrealized PnL in real time
+- Enforces hard risk limits (max position size, max open trades) on both manual and automated trades
+
+**The AI layer** — every feature is grounded in the trader's real, live data:
+
+| Feature | What it does |
+|---|---|
+| 💬 **AI Chat Assistant** | Free-form Q&A about your portfolio, positions, and EMA trends — answers only from live data, never from model knowledge alone |
+| 📊 **AI Backtest Analyzer** | Explains *why* a backtest performed as it did and suggests specific parameter adjustments to try next |
+| 🧠 **AI Portfolio Advisor** | Reviews your current holdings for concentration risk, diversification, and asset correlation |
+| 🏗️ **AI Strategy Builder** | Takes a plain-English description and returns a structured JSON strategy object that pre-fills the creation form — AI proposes, human confirms |
+| 📸 **AI Chart Reader** | Upload a TradingView screenshot; the AI identifies trend, support/resistance, and visible patterns |
+| 📰 **AI News Summarizer** | Pulls live crypto headlines from CoinDesk RSS and connects them back to what you're actually holding |
+| 🛡️ **AI Auto-Trade Filter** | Sits inline in the execution pipeline — reviews every EMA signal before it fires, approves or blocks based on portfolio context, fails **closed** on any error, fully auditable in bot logs |
+
+**Architecture:** FastAPI backend → PostgreSQL → Next.js frontend (App Router, TypeScript). All LLM calls centralized in `AIAssistantService` so model migrations (already done once during development) happen in one place. Structured JSON output validated with Pydantic before use for every AI feature that drives real state.
+
+🔗 [View on GitHub](https://github.com/Abbessi-zouhour/tradepilot-ai)
 
 ---
 
